@@ -1,6 +1,7 @@
 love.graphics.setBackgroundColor(0.125, 0.125, 0.125)
 
 function love.load()
+    -- create board
     board = {}
     for x = 1, 7 do
         board[x] = {}
@@ -8,6 +9,9 @@ function love.load()
             board[x][y] = 0
         end
     end
+
+    -- turns
+    turn = 1
 end
 
 function draw_game_state()
@@ -57,7 +61,8 @@ function love.mousepressed(x, y, button)
         if col >= 1 and col <= 7 then
             for row = 6, 1, -1 do
                 if board[col][row] == 0 then
-                    board[col][row] = 1
+                    board[col][row] = turn
+                    turn = 3 - turn
                     break
                 end
             end
