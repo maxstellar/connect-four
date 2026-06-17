@@ -13,6 +13,9 @@ function love.load()
     -- vars
     turn = 1
     winner = 0
+
+    bigfont = love.graphics.newFont(48)
+    love.graphics.setFont(bigfont)
 end
 
 function draw_game_state()
@@ -91,8 +94,14 @@ function love.draw()
 
     -- display winner
     if winner ~= 0 then
-        love.graphics.setColor(0, 0, 0, 0.7)
+        love.graphics.setColor(0, 0, 0, 0.75)
         love.graphics.rectangle("fill", 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
+        love.graphics.setColor(1, 1, 1)
+        if winner == 1 then
+            love.graphics.printf({{1, 0, 0, 1}, "Red", {1, 1, 1, 1}, " wins!"}, 0, love.graphics.getHeight() / 2 - 10, love.graphics.getWidth(), "center")
+        else
+            love.graphics.printf({{1, 1, 0, 1}, "Yellow", {1, 1, 1, 1}, " wins!"}, 0, love.graphics.getHeight() / 2 - 10, love.graphics.getWidth(), "center")
+        end
     end
 end
 
