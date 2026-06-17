@@ -1,5 +1,14 @@
 love.graphics.setBackgroundColor(0.125, 0.125, 0.125)
 
+function draw_game_state()
+    love.graphics.setColor(0.125, 0.125, 0.125)
+    for i=0, 6 do
+        for j=0, 5 do
+            love.graphics.circle("fill", 155 + i * 80, 100 + j * 80, 35)
+        end
+    end
+end
+
 function love.draw()
 
     -- create the background
@@ -18,5 +27,6 @@ function love.draw()
 
     -- create the game board
     love.graphics.setColor(0, 0.282, 0.812)
-    love.graphics.rectangle("fill", 50, 100, 700, 430)
+    love.graphics.rectangle("fill", 100, 50, 600, 500)
+    draw_game_state()
 end
